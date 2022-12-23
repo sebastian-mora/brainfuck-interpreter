@@ -6,35 +6,9 @@ import (
 	"github.com/sebastian-mora/brainfuck-interpreter/lexer"
 )
 
-/*
-Context Free Grammar: BrainFuck
-
-S -> t | L
-L -> [S]
-
-Where "t" is a terminal character
-
->>
-----
--
-	\
-		-
-		\
-			-
-			\
-				-
-
-+[-]
-----
-+
-	[
-		-
-			]
-*/
-
 type Operation struct {
 	Token lexer.Token
-	Count int
+	Count int // used for instruction optimation
 	Jump  int // set only if loop
 }
 
