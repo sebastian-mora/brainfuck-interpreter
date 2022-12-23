@@ -69,6 +69,7 @@ func Parse(tokens []lexer.Token) ([]Operation, error) {
 				return nil, errors.New("unmatched opening bracket")
 			}
 			continue
+
 		}
 	}
 

@@ -11,6 +11,7 @@ const (
 	INPUT
 	OPEN_LOOP
 	CLOSE_LOOP
+	NEW_LINE
 	EOF
 )
 

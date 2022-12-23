@@ -27,6 +27,8 @@ func Lex(program string) ([]Token, error) {
 			tokens[i] = Token{TokenType: OPEN_LOOP, Literal: string(char)}
 		case ']':
 			tokens[i] = Token{TokenType: CLOSE_LOOP, Literal: string(char)}
+		case '\n':
+			tokens[i] = Token{TokenType: NEW_LINE, Literal: string(char)}
 		default:
 			err := fmt.Sprintf("Error at %d: Invalid character \"%s\" ", i, string(char))
 			return nil, errors.New(err)
