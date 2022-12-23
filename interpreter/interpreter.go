@@ -41,17 +41,15 @@ func (bf *Brainfuck) Interpret() {
 		case lexer.OUTPUT:
 			fmt.Print(bf.Memory[bf.dp])
 		case lexer.INPUT:
-			continue
+			var input int
+			_, _ = fmt.Scan(&input)
+			bf.Memory[bf.dp] = input
 		case lexer.OPEN_LOOP:
 			if bf.Memory[bf.dp] <= 0 {
-				bf.ip = op.Jump
+				bf.ip = op.Jump + 1
 			}
 		case lexer.CLOSE_LOOP:
-			if bf.Memory[bf.dp] <= 0 {
-				continue
-			} else {
-				bf.ip = op.Jump
-			}
+			bf.ip = op.Jump
 
 		}
 	}
